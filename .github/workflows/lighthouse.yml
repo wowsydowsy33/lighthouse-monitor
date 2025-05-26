@@ -2,7 +2,7 @@ name: Run Lighthouse on Mobile
 
 on:
   schedule:
-    - cron: "0 14 * * *"  # Runs daily at 10am EST
+    - cron: "0 14 * * *"  # Daily at 10am EST
   workflow_dispatch:
 
 jobs:
@@ -10,14 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Lighthouse CI
-        id: lighthouse
+        id: lhci
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: 'https://pizazzdesign.com'
+          configPath: './lighthouserc.json'
           uploadArtifacts: true
 
-      - name: Upload Lighthouse Report
+      - name: Upload Lighthouse report
         uses: actions/upload-artifact@v3
         with:
-          name: lighthouse-results
+          name: lighthouse-report
           path: '.lighthouseci/*'
