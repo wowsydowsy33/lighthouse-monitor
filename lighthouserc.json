@@ -1,0 +1,13 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["https://pizazzdesign.com/"],
+      "settings": {
+        "emulatedFormFactor": "mobile"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
